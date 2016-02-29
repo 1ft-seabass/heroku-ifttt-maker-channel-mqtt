@@ -21,7 +21,7 @@ console.log("IFTTT_SECURITY_KEY:" + IFTTT_SECURITY_KEY);
 
 ////////////////////////////////////////////////////////////////////////
 
-ar express = require('express');
+var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
@@ -88,25 +88,27 @@ app.post('/ifttt/receive', function(request, response) {
 });
 
 // 実際の送信する sendIFTTT
-function sendIFTTT(value1,value2,value3){
-  var _request = require('request');
-  var options = {
-    uri: 'http://maker.ifttt.com/trigger/' + IFTTT_EVENT_NAME + '/with/key/' + IFTTT_SECURITY_KEY,
-    form: {
-      value1:value1,
-      value2:value2,
-      value3:value3
-    },
-    json: true
-  };
+function sendIFTTT(value1,value2,value3) {
+    var _request = require('request');
+    var options = {
+        uri: 'http://maker.ifttt.com/trigger/' + IFTTT_EVENT_NAME + '/with/key/' + IFTTT_SECURITY_KEY,
+        form: {
+            value1: value1,
+            value2: value2,
+            value3: value3
+        },
+        json: true
+    };
 
-  console.log('---------- [' + IFTTT_EVENT_NAME + ']');
-  console.log(options);
+    console.log('---------- [' + IFTTT_EVENT_NAME + ']');
+    console.log(options);
 
-  _request.post(options, function(error, response, body){
-    if (!error && response.statusCode == 200) {
-      console.log(body);
-    } else {
-      console.log('error: '+ response.statusCode);
-    }
-  });
+    _request.post(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(body);
+        } else {
+            console.log('error: ' + response.statusCode);
+        }
+    });
+
+}
