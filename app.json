@@ -1,8 +1,12 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
+  "name": "ifttt-maker-channel-mqtt",
+  "description": "IFTTT Maker Channel MQTT Server",
+  "repository": "https://github.com/1ft-seabass/heroku-ifttt-maker-channel-mqtt",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
+  "keywords": ["node", "express", "milkcocoa"],
+  "env": {
+    "IFTTT_EVENT_NAME":"sendIFTTT",
+    "IFTTT_SECURITY_KEY": ""
+  },
   "addons": ["cloudmqtt"]
 }
