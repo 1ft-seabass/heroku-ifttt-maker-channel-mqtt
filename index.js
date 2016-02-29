@@ -57,8 +57,9 @@ var client = mqtt.createClient(mqtt_url.port, mqtt_url.hostname, {
 client.subscribe('sendHeroku');
 client.on('message', function(topic, message, packet) {
   console.log("Received '" + message + "' on '" + topic + "'");
+    
   if(topic == 'sendHeroku'){
-    var data = JSON.stringify(message);
+    var data = JSON.stringify(message.toString());
     console.log(data);
     // 実際の送信する sendIFTTT
     sendIFTTT(
